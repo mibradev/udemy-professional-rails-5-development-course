@@ -4,5 +4,5 @@
   <p><%= portfolio_item.title %></p>
   <p><%= portfolio_item.subtitle %></p>
   <p><%= portfolio_item.body %></p>
-  <%= image_tag portfolio_item.thumb_image, alt: portfolio_item.title %>
+  <%= image_tag(portfolio_item.thumb_image, alt: portfolio_item.title) unless portfolio_item.thumb_image.nil? %>
 <% end %>
