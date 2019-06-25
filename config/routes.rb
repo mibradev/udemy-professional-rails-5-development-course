@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'about-me' => 'pages#about'
   get 'contact' => 'pages#contact'
 
+  devise_for :users
   root 'pages#home'
 end
