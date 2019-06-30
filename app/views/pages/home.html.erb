@@ -1,6 +1,4 @@
-<% if user_signed_in? %>
-  <p>Hi, <%= current_user.first_name %></p>
-<% end %>
+<p>Hi, <%= user_signed_in? ? current_user.first_name : 'Guest' %></p>
 
 <h1>Homepage</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
