@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="keywords" content="<%= @page[:keywords] %>">
+
+    <title><%= @page[:title] %></title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'About', about_me_path %></li>
+      <li><%= link_to 'Contact', contact_path %></li>
+      <li><%= link_to 'Blog', blogs_path %></li>
+      <li><%= link_to 'Portfolio', portfolios_path %></li>
+    </ul>
+
+    <% unless user_signed_in? %>
+      <%= link_to 'Login', new_user_session_path %>
+      <%= link_to 'Signup', new_user_registration_path %>
+    <% else %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% end %>
+
+    <%= yield %>
+
+    <% if session[:utm_source] %>
+      <p>Thanks for visiting from <%= session[:utm_source] %></p>
+    <% end %>
+  </body>
+</html>
