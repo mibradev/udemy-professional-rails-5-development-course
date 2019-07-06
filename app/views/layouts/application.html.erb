@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UdemyProfessionalRails5DevelopmentCourse</title>
+    <meta name="keywords" content="<%= @page[:keywords] %>">
+
+    <title><%= @page[:title] %></title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,6 +20,14 @@
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
+
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'About', about_me_path %></li>
+      <li><%= link_to 'Contact', contact_path %></li>
+      <li><%= link_to 'Blog', blogs_path %></li>
+      <li><%= link_to 'Portfolio', portfolios_path %></li>
+    </ul>
 
     <% unless user_signed_in? %>
       <%= link_to 'Login', new_user_session_path %>

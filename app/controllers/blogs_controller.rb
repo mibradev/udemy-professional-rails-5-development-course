@@ -3,9 +3,11 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all
+    @page[:title] = 'Blog'
   end
 
   def show
+    @page[:title] = @blog.title
   end
 
   def new
