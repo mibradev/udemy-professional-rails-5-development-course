@@ -21,7 +21,7 @@
       <p class="alert"><%= alert %></p>
     <% end %>
 
-    <%= render 'shared/nav' %>
+    <%= render 'shared/nav', position: 'bottom' %>
 
     <% unless user_signed_in? %>
       <%= link_to 'Login', new_user_session_path %>
