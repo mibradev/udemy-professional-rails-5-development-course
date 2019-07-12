@@ -22,13 +22,8 @@
     <% end %>
 
     <%= render 'shared/nav', position: 'bottom' %>
-
     <%= login_helper %>
-
     <%= yield %>
-
-    <% if session[:utm_source] %>
-      <p>Thanks for visiting from <%= session[:utm_source] %></p>
-    <% end %>
+    <%= utm_source_helper %>
   </body>
 </html>
