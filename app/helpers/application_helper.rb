@@ -14,4 +14,8 @@ module ApplicationHelper
       content_tag(:p, "Thanks for visiting from #{session[:utm_source]}", class: 'utm-source-greeting')
     end
   end
+
+  def copyright_generator
+    "Ⓒ #{Time.current.year} MibraDev"
+  end
 end

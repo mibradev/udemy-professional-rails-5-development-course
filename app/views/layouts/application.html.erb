@@ -23,7 +23,10 @@
 
     <%= render 'shared/nav', position: 'top' %>
     <%= login_helper %>
+
     <%= yield %>
+
+    <%= copyright_generator %>
     <%= utm_source_helper %>
   </body>
 </html>
