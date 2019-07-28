@@ -14,4 +14,12 @@ class User < ApplicationRecord
   def last_name
     name.split.last
   end
+
+  def has_role?(role)
+    roles.any? { |i| i[:name] == role.to_s }
+  end
+
+  def admin?
+    has_role?(:admin)
+  end
 end

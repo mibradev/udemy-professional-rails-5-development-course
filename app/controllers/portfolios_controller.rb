@@ -1,24 +1,30 @@
 class PortfoliosController < ApplicationController
   layout 'portfolio'
   before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @portfolio_items = Portfolio.all
+    authorize @portfolio_items
   end
 
   def show
+    authorize @portfolio_item
   end
 
   def new
     @portfolio_item = Portfolio.new
+    authorize @portfolio_item
     3.times { @portfolio_item.technologies.build }
   end
 
   def edit
+    authorize @portfolio_item
   end
 
   def create
     @portfolio_item = Portfolio.new(portfolios_params)
+    authorize @portfolio_item
 
     respond_to do |format|
       if @portfolio_item.save
@@ -30,6 +36,8 @@ class PortfoliosController < ApplicationController
   end
 
   def update
+    authorize @portfolio_item
+
     respond_to do |format|
       if @portfolio_item.update(portfolios_params)
         format.html { redirect_to portfolios_url, notice: 'The record successfully updated.' }
@@ -40,6 +48,7 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
+    authorize @portfolio_item
     @portfolio_item.destroy
 
     respond_to do |format|

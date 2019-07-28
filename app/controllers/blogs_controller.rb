@@ -1,25 +1,31 @@
 class BlogsController < ApplicationController
   layout 'blog'
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @blogs = Blog.all
+    authorize @blogs
     @page[:title] = 'Blog'
   end
 
   def show
+    authorize @blog
     @page[:title] = @blog.title
   end
 
   def new
     @blog = Blog.new
+    authorize @blog
   end
 
   def edit
+    authorize @blog
   end
 
   def create
     @blog = Blog.new(blog_params)
+    authorize @blog
 
     respond_to do |format|
       if @blog.save
@@ -31,6 +37,8 @@ class BlogsController < ApplicationController
   end
 
   def update
+    authorize @blog
+
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
@@ -41,13 +49,17 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    authorize @blog
     @blog.destroy
+
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: 'Post was removed.' }
     end
   end
 
   def toggle_status
+    authorize @blog
+
     if @blog.draft?
       @blog.published!
     elsif @blog.published?

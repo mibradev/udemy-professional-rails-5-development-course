@@ -2,5 +2,10 @@
 
 <%= render 'form', blog: @blog %>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<% if policy(@blog).show? %>
+  <%= link_to 'Show', @blog %> |
+<% end %>
+
+<% if policy(@blog).index? %>
+  <%= link_to 'Back', blogs_path %>
+<% end %>

@@ -2,8 +2,20 @@
   <td><%= blog.title %></td>
   <td>Published <%= time_ago_in_words blog.created_at %> ago</td>
   <td><%= blog.body %></td>
-  <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
-  <td><%= link_to 'Show', blog %></td>
-  <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-  <td><%= link_to 'Delete Post', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  <% if policy(blog).toggle_status? %>
+    <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
+  <% end %>
+
+  <% if policy(blog).show? %>
+    <td><%= link_to 'Show', blog %></td>
+  <% end %>
+
+  <% if policy(blog).edit? %>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+  <% end %>
+
+  <% if policy(blog).destroy? %>
+    <td><%= link_to 'Delete Post', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
 </tr>
