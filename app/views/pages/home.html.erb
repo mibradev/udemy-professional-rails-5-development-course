@@ -1,10 +1,7 @@
-<p>Hi, <%= user_signed_in? ? current_user.first_name : 'Guest' %></p>
+<h1 class="cover-heading">Welcome to my online home.</h1>
 
-<h1>Homepage</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<p class="lead">Software development is the closest concept we have to magic. It's my goal to ensure that anyone with a passion for coding can become a true programming artisan.</p>
 
-<h2>Blog Posts</h2>
-<pre><%= @posts.inspect %></pre>
-
-<h2>Skills</h2>
-<pre><%= @skills.inspect %></pre>
+<p class="lead">
+  <%= link_to 'About me', about_me_path, class: 'btn btn-lg btn-secondary' %>
+</p>
