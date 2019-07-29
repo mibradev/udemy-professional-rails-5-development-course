@@ -5,14 +5,7 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-
+    <%= render 'shared/alerts' %>
     <%= render 'shared/nav', position: 'top' %>
     <%= login_helper %>
 
