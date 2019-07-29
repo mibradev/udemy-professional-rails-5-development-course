@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="keywords" content="<%= @page[:keywords] %>">
-
-    <title><%= @page[:title] %></title>
-
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/head', layout_name: 'portfolios' %>
   </head>
 
   <body>
