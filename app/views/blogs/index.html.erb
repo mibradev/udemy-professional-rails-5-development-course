@@ -1,24 +1,21 @@
-<p id="notice"><%= notice %></p>
+<main role="main" class="container mt-5">
+  <% if policy(@blogs).new? %>
+    <div class="mt-5 text-right">
+      <%= link_to 'New Blog', new_blog_path, class: 'btn btn-success' %>
+      <hr>
+    </div>
+  <% end %>
 
-<h1>Blogs</h1>
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <%= render @blogs %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Body</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+      </nav>
+    </div><!-- /.blog-main -->
 
-  <tbody>
-    <%= render @blogs %>
-  </tbody>
-</table>
-
-<br>
-
-<% if policy(@blogs).new? %>
-  <%= link_to 'New Blog', new_blog_path %>
-<% end %>
+    <%= render 'sidebar' %>
+  </div><!-- /.row -->
+</main><!-- /.container -->

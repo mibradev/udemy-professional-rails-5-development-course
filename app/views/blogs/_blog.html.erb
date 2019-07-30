@@ -1,21 +1,29 @@
-<tr>
-  <td><%= blog.title %></td>
-  <td>Published <%= time_ago_in_words blog.created_at %> ago</td>
-  <td><%= blog.body %></td>
+<div class="blog-post">
+  <h2 class="blog-post-title">
+    <% if policy(blog).show? %>
+      <%= link_to blog.title, blog %>
+    <% else %>
+      blog.title
+    <% end %>
+  </h2>
 
-  <% if policy(blog).toggle_status? %>
-    <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
+  <p class="blog-post-meta">Published <%= time_ago_in_words blog.created_at %> ago</p>
+
+  <% if policy(blog).toggle_status? || policy(blog).edit? || policy(blog).destroy? %>
+    <div class="mb-4 text-right">
+      <% if policy(blog).toggle_status? %>
+        <%= link_to "Status: #{blog.status}", toggle_status_blog_path(blog), class: 'btn btn-secondary' %>
+      <% end %>
+
+      <% if policy(blog).edit? %>
+        <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-primary' %>
+      <% end %>
+
+      <% if policy(blog).destroy? %>
+        <%= link_to 'Delete Post', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <% end %>
+    </div>
   <% end %>
 
-  <% if policy(blog).show? %>
-    <td><%= link_to 'Show', blog %></td>
-  <% end %>
-
-  <% if policy(blog).edit? %>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-  <% end %>
-
-  <% if policy(blog).destroy? %>
-    <td><%= link_to 'Delete Post', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-</tr>
+  <%= blog.body %>
+</div><!-- /.blog-post -->
