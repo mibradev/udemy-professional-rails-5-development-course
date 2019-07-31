@@ -23,7 +23,7 @@
           <%= link_to 'Contact', contact_path, class: 'p-2 text-muted' %>
           <%= link_to 'Blog', blogs_path, class: 'p-2 text-muted' %>
           <%= link_to 'Portfolio', portfolios_path, class: 'p-2 text-muted' %>
-          <%= login_helper html_class: 'p-2 text-muted' %>
+          <%= render 'shared/session_links', html_class: 'p-2 text-muted' %>
         </nav>
       </div>
     </div>
@@ -31,7 +31,8 @@
     <%= yield %>
 
     <footer class="blog-footer">
-      <p><%= copyright_generator %></p>
+      <%= render 'shared/utm_source' %>
+      <%= render 'shared/copyright' %>
       <p><a href="#">Back to top</a></p>
     </footer>
   </body>
