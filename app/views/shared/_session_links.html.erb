@@ -1,15 +1,15 @@
 <% unless user_signed_in? %>
   <% unless local_assigns[:html_tag] %>
-    <%= link_to 'Login', new_user_session_path, class: html_class %>
-    <%= link_to 'Signup', new_user_registration_path, class: html_class %>
+    <%= link_to 'Login', new_user_session_path, class: html_class + "#{' active' if current_page?(new_user_session_path)}" %>
+    <%= link_to 'Signup', new_user_registration_path, class: html_class + "#{' active' if current_page?(new_user_registration_path)}" %>
   <% else %>
-    <%= content_tag html_tag, link_to('Login', new_user_session_path, class: html_class) %>
-    <%= content_tag html_tag, link_to('Signup', new_user_registration_path, class: html_class) %>
+    <%= content_tag html_tag, link_to('Login', new_user_session_path, class: html_class + "#{' active' if current_page?(new_user_session_path)}") %>
+    <%= content_tag html_tag, link_to('Signup', new_user_registration_path, class: html_class + "#{' active' if current_page?(new_user_registration_path)}") %>
   <% end %>
 <% else %>
   <% unless local_assigns[:html_tag] %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: html_class %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: html_class + "#{' active' if current_page?(destroy_user_session_path)}" %>
   <% else %>
-    <%= content_tag html_tag, link_to('Logout', destroy_user_session_path, method: :delete, class: html_class) %>
+    <%= content_tag html_tag, link_to('Logout', destroy_user_session_path, method: :delete, class: html_class + "#{' active' if current_page?(destroy_user_session_path)}") %>
   <% end %>
 <% end %>

@@ -1,15 +1,15 @@
 <% unless local_assigns[:html_tag] %>
-  <%= link_to 'Home', root_path, class: html_class %>
-  <%= link_to 'About', about_me_path, class: html_class %>
-  <%= link_to 'Contact', contact_path, class: html_class %>
-  <%= link_to 'Blog', blogs_path, class: html_class %>
-  <%= link_to 'Portfolio', portfolios_path, class: html_class %>
+  <%= link_to 'Home', root_path, class: html_class + "#{' active' if current_page?(root_path)}" %>
+  <%= link_to 'About', about_me_path, class: html_class + "#{' active' if current_page?(about_me_path)}" %>
+  <%= link_to 'Contact', contact_path, class: html_class + "#{' active' if current_page?(contact_path)}" %>
+  <%= link_to 'Blog', blogs_path, class: html_class + "#{' active' if current_page?(blogs_path)}" %>
+  <%= link_to 'Portfolio', portfolios_path, class: html_class + "#{' active' if current_page?(portfolios_path)}" %>
   <%= render 'shared/session_links', html_class: html_class %>
 <% else %>
-  <%= content_tag html_tag, link_to('Home', root_path, class: html_class) %>
-  <%= content_tag html_tag, link_to('About', about_me_path, class: html_class) %>
-  <%= content_tag html_tag, link_to('Contact', contact_path, class: html_class) %>
-  <%= content_tag html_tag, link_to('Blog', blogs_path, class: html_class) %>
-  <%= content_tag html_tag, link_to('Portfolio', portfolios_path, class: html_class) %>
+  <%= content_tag html_tag, link_to('Home', root_path, class: html_class + "#{' active' if current_page?(root_path)}") %>
+  <%= content_tag html_tag, link_to('About', about_me_path, class: html_class + "#{' active' if current_page?(about_me_path)}") %>
+  <%= content_tag html_tag, link_to('Contact', contact_path, class: html_class + "#{' active' if current_page?(contact_path)}") %>
+  <%= content_tag html_tag, link_to('Blog', blogs_path, class: html_class + "#{' active' if current_page?(blogs_path)}") %>
+  <%= content_tag html_tag, link_to('Portfolio', portfolios_path, class: html_class + "#{' active' if current_page?(portfolios_path)}") %>
   <%= render 'shared/session_links', html_class: html_class, html_tag: html_tag %>
 <% end %>
