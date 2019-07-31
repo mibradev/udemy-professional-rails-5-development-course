@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page]).per(5)
     authorize @blogs
     @page[:title] = 'Blog'
   end

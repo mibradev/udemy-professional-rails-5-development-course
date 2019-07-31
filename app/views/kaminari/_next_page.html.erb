@@ -1,0 +1,8 @@
+<%= link_to(
+  raw(t 'Newer'),
+  url,
+  remote: remote,
+  class: current_page.last? ? 'btn btn-outline-secondary disabled' : 'btn btn-outline-primary',
+  tabindex: current_page.last? ? -1 : nil,
+  :'aria-disabled' => current_page.last? ? true : nil
+) %>
