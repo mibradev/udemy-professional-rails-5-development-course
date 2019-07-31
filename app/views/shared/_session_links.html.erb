@@ -1,6 +1,15 @@
 <% unless user_signed_in? %>
-  <%= link_to('Login', new_user_session_path, class: html_class) %>
-  <%= link_to('Signup', new_user_registration_path, class: html_class) %>
+  <% unless local_assigns[:html_tag] %>
+    <%= link_to 'Login', new_user_session_path, class: html_class %>
+    <%= link_to 'Signup', new_user_registration_path, class: html_class %>
+  <% else %>
+    <%= content_tag html_tag, link_to('Login', new_user_session_path, class: html_class) %>
+    <%= content_tag html_tag, link_to('Signup', new_user_registration_path, class: html_class) %>
+  <% end %>
 <% else %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete, class: html_class) %>
+  <% unless local_assigns[:html_tag] %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: html_class %>
+  <% else %>
+    <%= content_tag html_tag, link_to('Logout', destroy_user_session_path, method: :delete, class: html_class) %>
+  <% end %>
 <% end %>
