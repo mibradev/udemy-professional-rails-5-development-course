@@ -1,7 +1,28 @@
-<h1>Portfolio Items</h1>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">My Portfolio</h1>
+    <p class="lead text-muted">Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+    <p>
+      <%= link_to 'Find Out More about Me', about_me_path, class: 'btn btn-primary my-2' %>
+      <%= link_to 'My Blog', blogs_path, class: 'btn btn-primary my-2' %>
+    </p>
+  </div>
+</section>
 
 <% if policy(@portfolio_items).new? %>
-  <%= link_to 'Create New Item', new_portfolio_path %>
+  <div class="pt-5 bg-light text-right">
+    <div class="container">
+      <%= link_to 'Create New Item', new_portfolio_path, class: 'btn btn-success' %>
+    </div>
+  </div>
 <% end %>
 
-<%= render partial: 'portfolio_item', collection: @portfolio_items %>
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row">
+      <%= render partial: 'portfolio_item', collection: @portfolio_items %>
+    </div>
+  </div>
+</div>

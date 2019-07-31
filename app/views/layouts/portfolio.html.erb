@@ -5,12 +5,58 @@
   </head>
 
   <body>
-    <%= render 'shared/alerts' %>
-    <%= render 'shared/nav', position: 'top' %>
-    <%= login_helper %>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
 
-    <%= yield %>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Explore</h4>
 
-    <%= utm_source_helper %>
+              <ul class="list-unstyled">
+                <li><%= link_to 'Home', root_path, class: 'text-white' %></li>
+                <li><%= link_to 'About', about_me_path, class: 'text-white' %></li>
+                <li><%= link_to 'Contact', contact_path, class: 'text-white' %></li>
+                <li><%= link_to 'Blog', blogs_path, class: 'text-white' %></li>
+                <li><%= link_to 'Portfolio', portfolios_path, class: 'text-white' %></li>
+                <li><%= login_helper html_class: 'text-white' %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="<%= portfolios_path %>" class="navbar-brand d-flex align-items-center">
+            <strong>MibraDev</strong>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+      <div class="container">
+        <%= render 'shared/alerts' %>
+      </div>
+
+      <%= yield %>
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p><%= utm_source_helper %></p>
+        <p><%= copyright_generator %></p>
+      </div>
+    </footer>
   </body>
 </html>

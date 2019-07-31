@@ -1,12 +1,36 @@
-<%= image_tag @portfolio_item.main_image %>
+<main class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <%= image_tag @portfolio_item.main_image %>
+      </div>
 
-<h1><%= @portfolio_item.title %></h1>
+      <div class="col">
+        <div>
+          <h1 class="mb-0"><%= @portfolio_item.title %></h1>
+          <h2><small class="text-muted"><%= @portfolio_item.subtitle %></small></h2>
 
-<em><%= @portfolio_item.subtitle %></em>
-<p><%= @portfolio_item.body %></p>
+          <p><%= @portfolio_item.body %></p>
+        </div>
 
-<h2>Technologies Used</h2>
+        <% unless @portfolio_item.technologies.empty? %>
+          <hr>
 
-<% @portfolio_item.technologies.each do |technology| %>
-  <p><%= technology.name %></p>
-<% end %>
+          <div>
+            <h2>Technologies Used</h2>
+
+            <% @portfolio_item.technologies.each do |technology| %>
+              <p><%= technology.name %></p>
+            <% end %>
+          </div>
+        <% end %>
+
+        <hr>
+
+        <div>
+          <%= link_to 'View all portfolio items', portfolios_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
