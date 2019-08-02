@@ -1,2 +1,9 @@
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap_templates/cover";
+
+body {
+  background-image: image-url('home');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
