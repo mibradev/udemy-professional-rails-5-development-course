@@ -4,7 +4,7 @@ class PortfoliosController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.order(:position)
     authorize @portfolio_items
   end
 
@@ -54,6 +54,12 @@ class PortfoliosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Record was removed.' }
     end
+  end
+
+  def sort
+    authorize :portfolio
+    params[:order].each { |k, v| Portfolio.find_by_id(v[:id])&.update(position: v[:position]) }
+    head :no_content
   end
 
   private
