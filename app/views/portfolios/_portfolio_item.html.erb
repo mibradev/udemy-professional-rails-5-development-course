@@ -1,6 +1,6 @@
 <div class="col-md-4" data-id="<%= portfolio_item.id if policy(portfolio_item).update? %>">
   <div class="card mb-4 shadow-sm">
-    <%= image_tag(portfolio_item.thumb_image, alt: portfolio_item.title) unless portfolio_item.thumb_image.nil? %>
+    <%= image_tag(portfolio_item.thumb_image, alt: portfolio_item.title, size: '350x200') if portfolio_item.thumb_image.attached? %>
 
     <div class="card-body">
       <h3 class="card-title"><%= portfolio_item.title %></h3>
