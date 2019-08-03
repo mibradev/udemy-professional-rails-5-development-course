@@ -1,3 +1,11 @@
+User.create!(email: "admin@example.com", password: ENV["RAILS_USER_PASSWORD"], name: "Admin") do |user|
+  user.roles << Role.create!(name: "admin")
+end
+
+User.create!(email: "user@example.com", password: ENV["RAILS_USER_PASSWORD"], name: "User")
+
+puts "2 users created"
+
 3.times do |i|
   Topic.create!(
     title: "Topic #{i}"
