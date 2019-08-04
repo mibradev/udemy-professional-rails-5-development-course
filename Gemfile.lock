@@ -64,6 +64,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
+    cocoon (1.2.14)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
@@ -223,6 +224,7 @@ DEPENDENCIES
   active_storage_validations (~> 0.8.0)
   bootsnap (>= 1.4.2)
   byebug
+  cocoon (~> 1.2.14)
   devise (~> 4.6)
   font-awesome-sass (~> 5.9.0)
   friendly_id (~> 5.2.5)

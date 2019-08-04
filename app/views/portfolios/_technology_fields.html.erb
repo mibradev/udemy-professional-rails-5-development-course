@@ -1,0 +1,10 @@
+<div class="field nested-fields form-group">
+  <%= f.label :name %>
+  <div class="input-group">
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <div class="input-group-append">
+      <%= link_to_remove_association '-', f, class: 'input-group-text btn bg-danger text-white font-weight-bold px-3' %>
+    </div>
+  </div>
+</div>
