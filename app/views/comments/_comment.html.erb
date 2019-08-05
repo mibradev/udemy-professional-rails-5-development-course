@@ -1,0 +1,18 @@
+<div class="mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-1">
+      <%= gravatar comment.user, class: 'w-100' %>
+    </div>
+
+    <div class="col-md-11 pl-3">
+      <div>
+        <div>
+          <strong class="text-secondary"><%= comment.user.name %></strong>
+          <small class="text-muted"><em><%= time_ago_in_words comment.created_at %> ago</em></small>
+        </div>
+
+        <p><%= comment.content %></p>
+      </div>
+    </div>
+  </div>
+</div>

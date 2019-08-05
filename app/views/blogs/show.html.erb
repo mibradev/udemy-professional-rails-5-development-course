@@ -1,15 +1,23 @@
 <div class="container mt-5 mb-5">
   <div class="row">
     <main role="main" class="col-md-8">
-      <h2><%= @blog.title %></h2>
+      <div>
+        <h2><%= @blog.title %></h2>
 
-      <% if policy(@blog).edit? %>
-        <div>
-          <%= link_to 'Edit', edit_blog_path(@blog) %>
-        </div>
+        <% if policy(@blog).edit? %>
+          <div>
+            <%= link_to 'Edit', edit_blog_path(@blog) %>
+          </div>
+        <% end %>
+
+        <%= @blog.body %>
+      </div>
+
+      <% if policy(@comment).show? %>
+        <hr>
+
+        <%= render 'comments', blog: @blog, comment: @comment %>
       <% end %>
-
-      <%= @blog.body %>
     </main>
 
     <%= render 'sidebar' %>

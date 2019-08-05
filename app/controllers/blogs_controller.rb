@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   layout 'blog'
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_blog, only: [:edit, :update, :destroy, :toggle_status]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -10,7 +10,11 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @blog = Blog.includes(:comments).friendly.find(params[:id])
+    @comment = Comment.new
+
     authorize @blog
+
     @page[:title] = @blog.title
   end
 

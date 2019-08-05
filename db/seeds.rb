@@ -24,6 +24,12 @@ end
 
 puts "10 blog posts created"
 
+3.times do |i|
+  User.last.comments.create!(content: "Comment #{i}", blog_id: Blog.first.id)
+end
+
+puts "3 comments created"
+
 5.times do |i|
   Skill.create!(
     title: "Skill #{i}",

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+
   resources :portfolios, except: :show do
     put :sort, on: :collection
   end
