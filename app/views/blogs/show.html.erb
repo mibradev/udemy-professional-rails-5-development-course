@@ -3,6 +3,7 @@
     <main role="main" class="col-md-8">
       <div>
         <h2><%= @blog.title %></h2>
+        <h3 class="h6 text-muted">Topic: <%= @blog.topic.title %></h3>
 
         <% if policy(@blog).edit? %>
           <div>

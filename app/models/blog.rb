@@ -9,5 +9,5 @@ class Blog < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  validates :title, :body, presence: true
+  validates :title, :body, :topic_id, presence: true
 end
