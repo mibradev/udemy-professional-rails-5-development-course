@@ -4,13 +4,13 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @blogs = Blog.page(params[:page]).per(5)
+    @blogs = policy_scope(Blog).order(created_at: :desc).page(params[:page]).per(5)
     authorize @blogs
     @page[:title] = 'Blog'
   end
 
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
+    @blog = policy_scope(Blog).includes(:comments).friendly.find(params[:id])
     @comment = Comment.new
 
     authorize @blog
