@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
       authorize @comment
 
-      if Blog.exists?(@comment.blog_id) && @comment.save
+      if @comment.save
         ActionCable.server.broadcast(
           'blog_channel',
           comment: @comment,
