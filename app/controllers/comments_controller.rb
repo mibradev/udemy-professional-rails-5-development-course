@@ -21,6 +21,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    authorize @comment
+    @comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path, notice: 'Comment was removed.' }
+    end
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:content, :blog_id)
