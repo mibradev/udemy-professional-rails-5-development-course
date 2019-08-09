@@ -7,7 +7,7 @@ class Blog < ApplicationRecord
 
   belongs_to :topic
 
-  has_many :comments, -> { order(created_at: :desc).limit(20) }, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :title, :body, :topic_id, presence: true
 end

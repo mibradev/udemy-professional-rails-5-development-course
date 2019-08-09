@@ -3,7 +3,13 @@
 
   <%= render 'comments/form', comment: comment, blog: blog %>
 
-  <div class="mt-4" data-channel="comments" data-blog-id="<%= blog.id %>">
-    <%= render blog.comments %>
-  </div>
+  <% if @comments.any? %>
+    <div class="mt-4" data-channel="comments" data-blog-id="<%= blog.id %>">
+      <%= render @comments %>
+    </div>
+
+    <div data-comments-pagination>
+      <%= comments_pagination %>
+    </div>
+  <% end %>
 </div>

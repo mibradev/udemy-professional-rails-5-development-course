@@ -1,0 +1,2 @@
+document.querySelector('[data-channel="comments"]').insertAdjacentHTML('beforeend', '<%= escape_javascript render @comments %>')
+document.querySelector('[data-comments-pagination]').innerHTML = '<%= escape_javascript comments_pagination %>'
