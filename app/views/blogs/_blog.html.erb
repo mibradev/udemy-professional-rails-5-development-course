@@ -11,17 +11,19 @@
 
   <% if policy(blog).toggle_status? || policy(blog).edit? || policy(blog).destroy? %>
     <div class="mb-4 text-right">
-      <% if policy(blog).toggle_status? %>
-        <%= link_to "Status: #{blog.status}", toggle_status_blog_path(blog), class: 'btn btn-secondary' %>
-      <% end %>
+      <div class="btn-group">
+        <% if policy(blog).toggle_status? %>
+          <%= link_to "Status: #{blog.status}", toggle_status_blog_path(blog), class: 'btn btn-secondary btn-sm' %>
+        <% end %>
 
-      <% if policy(blog).edit? %>
-        <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-primary' %>
-      <% end %>
+        <% if policy(blog).edit? %>
+          <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-primary btn-sm' %>
+        <% end %>
 
-      <% if policy(blog).destroy? %>
-        <%= link_to 'Delete Post', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-      <% end %>
+        <% if policy(blog).destroy? %>
+          <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
