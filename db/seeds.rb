@@ -14,21 +14,22 @@ end
 
 puts "3 topics created"
 
-10.times do |i|
+24.times do |i|
   Blog.create!(
     title: "Post #{i}",
     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    status: i.odd? ? "published" : "draft",
     topic_id: Topic.last.id
   )
 end
 
-puts "10 blog posts created"
+puts "24 blog posts created"
 
-3.times do |i|
-  User.last.comments.create!(content: "Comment #{i}", blog_id: Blog.first.id)
+30.times do |i|
+  User.last.comments.create!(content: "Comment #{i}", blog_id: Blog.last.id)
 end
 
-puts "3 comments created"
+puts "30 comments created"
 
 5.times do |i|
   Skill.create!(
