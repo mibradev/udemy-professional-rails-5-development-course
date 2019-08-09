@@ -3,7 +3,7 @@
     <main role="main" class="col-md-8">
       <div>
         <h2><%= @blog.title %></h2>
-        <h3 class="h6 text-muted">Topic: <%= @blog.topic.title %></h3>
+        <h3 class="h6 text-muted">Topic: <%= link_to @blog.topic.title, topic_path(@blog.topic) %></h3>
 
         <%= render 'actions', blog: @blog %>
 
