@@ -13,10 +13,12 @@ class CommentsController < ApplicationController
           comment: @comment,
           html: render(partial: 'comments/comment', locals: { comment: @comment })
         )
+
+        head :no_content
+      else
+        redirect_back fallback_location: root_path, flash: { comment_errors: @comment.errors.full_messages }
       end
     end
-
-    head :no_content
   end
 
   private
