@@ -18,7 +18,7 @@ consumer.subscriptions.create('BlogChannel', {
   received(data) {
     // Called when there's incoming data on the websocket for this channel
     if (this.$comments.is(`[data-blog-id=${data.comment.blog_id}]`)) {
-      this.$comments.append(data.html)
+      this.$comments.prepend(data.html)
     }
   }
 })

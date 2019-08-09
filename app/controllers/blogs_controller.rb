@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = policy_scope(Blog).includes(comments: :user).friendly.find(params[:id])
+    @blog = policy_scope(Blog).includes(comments: :user).order('comments.created_at DESC').friendly.find(params[:id])
     @comment = Comment.new
 
     authorize @blog
