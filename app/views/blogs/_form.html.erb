@@ -21,7 +21,17 @@
     <%= form.collection_select :topic_id, Topic.all, :id, :title, { include_blank: true }, class: 'form-control' %>
   </div>
 
-  <div class="field form-group">
+  <div class="field form-check form-check-inline">
+    <%= form.radio_button :status, 'draft', class: 'form-check-input' %>
+    <%= form.label :status_draft, 'Draft', class: 'form-check-label' %>
+  </div>
+
+  <div class="field form-check form-check-inline">
+    <%= form.radio_button :status, 'published', class: 'form-check-input' %>
+    <%= form.label :status_published, 'Published', class: 'form-check-label' %>
+  </div>
+
+  <div class="field form-group mt-3">
     <%= form.label :body %>
     <%= form.text_area :body, class: 'form-control', rows: 10 %>
   </div>
