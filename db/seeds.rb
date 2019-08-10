@@ -1,8 +1,8 @@
-User.create!(email: "admin@example.com", password: ENV["RAILS_USER_PASSWORD"], name: "Admin") do |user|
+User.create!(email: "admin@example.com", password: ENV.fetch("RAILS_USER_PASSWORD"), name: "Admin") do |user|
   user.roles << Role.create!(name: "admin")
 end
 
-User.create!(email: "user@example.com", password: ENV["RAILS_USER_PASSWORD"], name: "User")
+User.create!(email: "user@example.com", password: ENV.fetch("RAILS_USER_PASSWORD"), name: "User")
 
 puts "2 users created"
 
