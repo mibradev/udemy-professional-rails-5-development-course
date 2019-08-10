@@ -34,7 +34,7 @@ puts "30 comments created"
 5.times do |i|
   Skill.create!(
     title: "Skill #{i}",
-    percent_utilized: 15
+    percent_utilized: rand(15..100)
   )
 end
 
