@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row">
       <% if @portfolio_item.thumb_image.attached? %>
-        <div class="col border">
-          <%= image_tag @portfolio_item.main_image, alt: @portfolio_item.title, size: '600x400' %>
+        <div class="col-md border">
+          <%= image_tag @portfolio_item.main_image.variant(resize_to_limit: [600, 400]), alt: @portfolio_item.title, class: 'img-fluid' %>
         </div>
       <% end %>
 
-      <div class="col">
+      <div class="col-md">
         <div>
           <h1 class="mb-0"><%= @portfolio_item.title %></h1>
           <h2><small class="text-muted"><%= @portfolio_item.subtitle %></small></h2>
