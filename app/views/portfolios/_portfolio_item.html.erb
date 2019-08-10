@@ -6,20 +6,22 @@
       <h3 class="card-title"><%= portfolio_item.title %></h3>
       <h4><small><%= portfolio_item.subtitle %></small></h4>
 
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <% if policy(portfolio_item).show? %>
-            <%= link_to 'View', portfolio_show_path(portfolio_item), class: 'btn btn-sm btn-outline-secondary' %>
-          <% end %>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <% if policy(portfolio_item).show? || policy(portfolio_item).edit? || policy(portfolio_item).destroy? %>
+          <div class="btn-group">
+            <% if policy(portfolio_item).show? %>
+              <%= link_to 'View', portfolio_show_path(portfolio_item), class: 'btn btn-sm btn-outline-secondary' %>
+            <% end %>
 
-          <% if policy(portfolio_item).edit? %>
-            <%= link_to 'Edit', edit_portfolio_path(portfolio_item), class: 'btn btn-sm btn-outline-secondary' %>
-          <% end %>
+            <% if policy(portfolio_item).edit? %>
+              <%= link_to 'Edit', edit_portfolio_path(portfolio_item), class: 'btn btn-sm btn-outline-secondary' %>
+            <% end %>
 
-          <% if policy(portfolio_item).destroy? %>
-            <%= link_to 'Delete', portfolio_item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-secondary' %>
-          <% end %>
-        </div>
+            <% if policy(portfolio_item).destroy? %>
+              <%= link_to 'Delete', portfolio_item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-secondary' %>
+            <% end %>
+          </div>
+        <% end %>
 
         <small class="text-muted"><%= time_ago_in_words portfolio_item.created_at %></small>
       </div>
