@@ -2,7 +2,7 @@
   <div class="mb-4 text-right">
     <div class="btn-group">
       <% if policy(blog).toggle_status? %>
-        <%= link_to "Status: #{blog.status}", toggle_status_blog_path(blog), class: 'btn btn-secondary btn-sm' %>
+        <%= link_to blog.status.capitalize, toggle_status_blog_path(blog), class: status_button_class(blog.status) %>
       <% end %>
 
       <% if policy(blog).edit? %>
