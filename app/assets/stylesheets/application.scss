@@ -15,5 +15,10 @@ body {
 }
 
 .cover-container {
+  max-width: 62em;
   z-index: 0;
+
+  .main {
+    background-color: rgba(248, 249, 250, .75);
+  }
 }

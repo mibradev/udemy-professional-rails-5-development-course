@@ -21,10 +21,12 @@
       <main role="main" class="inner cover">
         <%= render 'shared/alerts' %>
 
-        <%= yield %>
+        <div class="main text-dark px-4 py-5 my-5 rounded-lg">
+          <%= yield %>
+        </div>
       </main>
 
-      <footer class="mastfoot mt-auto text-white">
+      <footer class="mastfoot mt-auto text-dark">
         <div class="inner">
           <%= render 'shared/utm_source' %>
           <%= render 'shared/copyright' %>
