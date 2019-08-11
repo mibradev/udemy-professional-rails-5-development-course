@@ -1,24 +1,24 @@
-# README
+# A simple portfolio app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Based on [Dissecting Ruby on Rails 5 - Become a Professional Developer Course](https://www.udemy.com/professional-rails-5-development-course/)
 
-Things you may want to cover:
+## Notable differences
 
-* Ruby version
+- Using latest packages
+- Using Rails 6
+- Using Active Storage
+- Using Webpacker for JavaScript management
+- Using Pundit for authorization
+- Using latest Bootstrap templates
+- More complete features
 
-* System dependencies
+## Usage
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Clone the app
+- Install the required Ruby version
+- Install Postgresql
+- Set RAILS_USER_PASSWORD environment variable
+- Run `bin/setup`
+- Run `rails db:setup`
+- Run `rails server`
+- Visit http://localhost:3000
