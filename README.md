@@ -7,6 +7,7 @@ Based on [Dissecting Ruby on Rails 5 - Become a Professional Developer Course](h
 - Using latest packages
 - Using Rails 6
 - Using Active Storage
+- Using Action Text
 - Using Webpacker for JavaScript management
 - Using Pundit for authorization
 - Using latest Bootstrap templates
